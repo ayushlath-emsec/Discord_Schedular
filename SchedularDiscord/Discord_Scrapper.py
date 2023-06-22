@@ -6,12 +6,12 @@ import asyncio
 from getfunc import *
 
 # function to check status 
-def scrapSuccess(func):
-    collection.update_one({"channel_id":func},{'$set':{"isUrgent":False,"status":"done","time":datetime.now(),"failedCount":0}})
+def scrapSuccess(channel_id):
+    collection.update_one({"channel_id":channel_id},{'$set':{"isUrgent":False,"status":"done","time":datetime.now(),"failedCount":0}})
 def scrapFailed(func , failedCount):
-    collection.update_one({"channel_id":func},{'$set':{"isUrgent":False,"status":"error","time":datetime.now(),"failedCount":failedCount+1}})
+    collection.update_one({"channel_id":channel_id},{'$set':{"isUrgent":False,"status":"error","time":datetime.now(),"failedCount":failedCount+1}})
 def scrapRunning(func):
-    collection.update_one({"channel_id":func},{'$set':{"status":"running","time":datetime.now()}})
+    collection.update_one({"channel_id":channel_id},{'$set':{"status":"running","time":datetime.now()}})
 
 
 # add your function here 
