@@ -1,6 +1,5 @@
 from Discord_Scrapper import *
 from bson import ObjectId
-from Database_Connection import *
 from flag import *
 import asyncio
 
